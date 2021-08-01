@@ -3,3 +3,5 @@ frontend/.parcel-cache
 dist
 node_modules
 backend/venv/
+backend/server/item/__pycache__/
+backend/server/root/__pycache__/
