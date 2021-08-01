@@ -1,0 +1,4 @@
+ingored_files
+frontend/.parcel-cache
+dist
+node_modules
