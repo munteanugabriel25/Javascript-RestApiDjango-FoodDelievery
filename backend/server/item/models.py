@@ -9,10 +9,10 @@ def item_media_path(instance, filename):
 
     
 class Item(models.Model):
-    CATEGORY = [("pizza", "Pizza"),
-                ("soups", "Soups"),
-                ("drinks", "Drinks"),
-                ("others", "Others")
+    CATEGORY = [("Pizza", "pizza"),
+                ("Soups", "soups"),
+                ("Drinks", "drinks"),
+                ("Others", "others")
                 ]
     name = models.CharField(max_length=14, blank=False, default="undefined")
     price = models.FloatField(blank=False, default=0)
@@ -20,6 +20,7 @@ class Item(models.Model):
     id = models.CharField(max_length=20, blank=True, unique=True, primary_key=True)
     image = models.FileField(upload_to=item_media_path, default="def.jpg")
     spicy = models.IntegerField(default=1)
+    description = models.CharField(max_length=250, default='')
     category = models.CharField(max_length=120, choices=CATEGORY, default="others")
     
     def save(self, *args, **kwargs):
@@ -33,11 +34,11 @@ class Item(models.Model):
 
 
 class Ingredient(models.Model):
-    UNIT = [("grams", "g"),
-            ("piece", "pc"),
-            ("milliliters", "ml"),
-            ("undefined", " "),
-            ("table_spoon", "tsp"),
+    UNIT = [("g", "grams"),
+            ("pc", "piece"),
+            ("ml", "milliliters"),
+            (" ", "undefined"),
+            ("tsp", "table_spoon"),
             ("cup", "cup")
             ]
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name="ingredients", default=1)
