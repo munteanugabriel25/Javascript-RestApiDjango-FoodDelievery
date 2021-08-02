@@ -22,7 +22,7 @@
                 
                 <img class="logo" src="./src/images/logo.png">
                 <div class="search__container">
-                    <input type="text" name="search_for" placeholder="What food you want?">
+                    <input type="text" name="search_for" placeholder="What food do you want?">
                     <button><i class="fas fa-search"></i></button>
                 </div>
                 <div class="cart__container">
@@ -31,7 +31,13 @@
                         <p> <i class="fas fa-dollar-sign"></i> 56</p>
                         <p> <i class="fas fa-shopping-cart"></i> kart</p>
                     </div>
-                    <button class="btn__kart__order">ORDER</button>
+                    <button class="btn__kart">ORDER</button>
+                </div>
+                <div class="user__account__container">
+                    <div class="cart__details">
+                        <p> <i class="fas fa-user"></i> not logged in</p>
+                    </div>
+                    <button class="btn__kart">LOGIN</button>
                 </div>
             </div>
             <div class="product__detail">
@@ -100,13 +106,22 @@
                                  <p class="ingredient_name"> bacon</p>
                              </div>
                          </div>
-
+                     
                     </div>
                 </div>
 
             </div>
             <div class="menu__bar">
-
+                <nav>
+                    <ul>
+                        <li class="menu__item"> <a href="">Pizza</a></li>
+                        <li class="menu__item"> <a href="">Burgers</a></li>
+                        <li class="menu__item"> <a href="">Soups</a></li>
+                        <li class="menu__item"> <a href="">Drinks</a></li>
+                        <li class="menu__item"> <a href="">Cakes</a></li>
+                        <li class="menu__item"> <a href="">Others</a></li>
+                    </ul>
+                </nav>
             </div>
             <div class="preview__container">
                 <div class="preview__card">
@@ -190,8 +205,32 @@
                         <button class="btn__preview__add">+</button>
                      </div>
                 </div>
+                <div class="preview__card">
+                    <div class="back__line">
+                    </div>
+                    <a href="" class="preview__product">
+                        <div class="preview__picture">
+                             <img src="./src/images/test.png">
+                        </div>
+                        <div class="preview__product__details">
+                             <p class="preview__product__title">Tomato Pomadoro</p>
+                             <p class="preview__product__ingredients">Tomato Pomadoro</p>
+                             <p class="preview__product__price"><i class="fas fa-dollar-sign"></i> 56</p>
+                        </div>
+                       
+                        <button class="btn__preview__add">+</button>
+                    </a>
+                </div>
+
+            </div>
+            <div class="paginator__container">
+                <div class="paginator">
+                    <button class="paginator__button"><i class="fas fa-chevron-left"></i>Page 1</button>
+                    <button class="paginator__button">Page 3<i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
 
+            
         </section>
 
     </body>
