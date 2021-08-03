@@ -16,3 +16,4 @@ backend/server/item/migrations/__pycache__/
 */__pycache__/
 *.log
 *.pot
+frontend/src/webfonts/
