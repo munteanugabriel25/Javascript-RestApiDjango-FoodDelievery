@@ -9,7 +9,6 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 class RetrieveItemView(APIView):
-    
     def get(self, request, id):
         item = get_object_or_404(Item, pk=id)
         serializer = ItemSerializer(item, context={"request": request})
@@ -19,7 +18,6 @@ class RetrieveItemView(APIView):
 class SearchItemView(APIView):
     def get(self, request):
         query = request.GET.get("search", "")
-        print(query)
         data = Item.objects.all()
         if query == "":
             serializer = SearchSerializer(data, many=True, context={"request": request})
@@ -32,7 +30,6 @@ class ListCategoryView(APIView):
     
     def get(self, request, category):
         query = Item.objects.category_item(category)
-        print(query)
         serializer = SearchSerializer(query, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
         

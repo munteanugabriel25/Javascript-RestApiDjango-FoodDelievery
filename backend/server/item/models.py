@@ -1,10 +1,12 @@
 from django.db import models
 import uuid
+from django.db.models import Q
 
 
 # Create your models here.
 def item_media_path(instance, filename):
     return 'item_pics/{0}/{1}'.format(instance.name, filename)
+
 
 def generate_random_id():
     uuid_id = str(uuid.uuid4()).replace("-", "")[:20]
@@ -12,11 +14,13 @@ def generate_random_id():
 
 
 class ItemManager(models.Manager):
-    
     def category_item(self, category):
         return self.filter(category=category)
-        
-        
+    
+    def search_item(self, query):
+        return self.filter(Q(name__contains=query) | Q(ingredients__name__contains=query))
+
+
 class Item(models.Model):
     CATEGORY = [("Pizza", "pizza"),
                 ("Soups", "soups"),
