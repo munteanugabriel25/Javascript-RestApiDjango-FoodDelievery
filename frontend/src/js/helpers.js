@@ -1,9 +1,9 @@
 import {REQUEST_TIMEOUT} from "./config.js"
 
 
-async function getJSON(url){
+export async function getJSON(url, token){
     try{
-        const response = await Promise.race([fetch(url)], timeout(REQUEST_TIMEOUT));
+        const response = await Promise.race([fetch(url), timeout(REQUEST_TIMEOUT)]);
         const data = await response.json();
         if(!response.ok) throw new Error(`${response.status} ${data.message}`);
         return data;
@@ -12,7 +12,6 @@ async function getJSON(url){
         throw error;
     }
 }
-
 
 const timeout = function(seconds){
     return new Promise(function( _ ,reject){

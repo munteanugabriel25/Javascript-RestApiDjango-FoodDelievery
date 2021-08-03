@@ -3,6 +3,11 @@ frontend/.parcel-cache
 dist
 node_modules
 backend/venv/
-backend/server/item/__pycache__
+backend/server/item/__pycache__/
 backend/server/root/__pycache__/
-backend/server/item/migrations/__pycache__
+backend/server/item/migrations/__pycache__/
+.idea/
+*.pyc
+*~
+*.swp
+*.py[co]
