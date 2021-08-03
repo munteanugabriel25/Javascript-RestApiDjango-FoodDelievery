@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="src/css/style.css" />
+		<link rel="stylesheet" href="src/css/all.css" />
+		<script defer src="src/js/controller.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+       
+        <script src="" async defer></script>
+        <section class="main__window">
+            <div class="top__bar">
+                
+                <img class="logo" src="./src/images/logo.png">
+                <form class="search__container">
+                    <input type="text" name="search_for" placeholder="What food do you want?" class="search__for">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+                <div class="cart__container">
+                    <div class="cart__details">
+                        <p> 3 dishees</p>
+                        <p> <i class="fas fa-dollar-sign"></i> 56</p>
+                        <p> <i class="fas fa-shopping-cart"></i> kart</p>
+                    </div>
+                    <button class="btn__kart">ORDER</button>
+                </div>
+                <div class="user__account__container">
+                    <div class="cart__details">
+                        <p> <i class="fas fa-user"></i> not logged in</p>
+                    </div>
+                    <button class="btn__kart">LOGIN</button>
+                </div>
+            </div>
+            <div class="product__detail">
+               
+                <div class="product__picture">
+                    <div class="picture__container">
+                        <img  src="./src/images/test2.png">
+                    </div>
+                </div>
+                
+                <div class="product__info">
+                    <div>
+                        <p class="product__title">Tomato Pomadoro olives</p>
+                        <div class="product__rating">
+                            <i class="hot fas fa-pepper-hot"></i>
+                            <i class="mild fas fa-pepper-hot"></i>
+                            <i class="fas fa-pepper-hot"></i>
+                            <i class="fas fa-pepper-hot"></i>
+                            <i class="fas fa-pepper-hot"></i>
+                            <span> Good as hell</span>
+                        </div>
+                    </div>
+                   
+                    <p class="product__description">Quattro formaggi is a variety of Italian pizza topped with a combination of four kinds of cheese.</p>
+                    <form class="product__qty__form">
+                        <div class="product__price__qty">
+                            <div class="input__container"> 
+                                <button class="form__bnt__qty" value="decrease">-</button>
+                                <input type="number" value="1" id="qty__input">
+                                <button class="form__bnt__qty" value="increase">+</button>
+                            </div>
+                            <p class="product__price">Price: <span>$12</span> </p>
+                        </div>
+                        <button class="btn__form__add" type="submit">add to kart</button>
+                    </form>
+                    <div class="product__ingredients">
+                        <div class="ingredient__container">
+                           <img class="ingredient_icon" src="./src/images/item.svg">
+                           <div class="ingredient_info">
+                                <p class="ingredient_weight"> 50 g</p>
+                                <p class="ingredient_name"> olives</p>
+                            </div>
+                        </div>
+                        <div class="ingredient__container">
+                            <img class="ingredient_icon" src="./src/images/item.svg">
+                            <div class="ingredient_info">
+                                 <p class="ingredient_weight"> 50 g</p>
+                                 <p class="ingredient_name"> milk cream</p>
+                             </div>
+                             
+                         </div>
+                         <div class="ingredient__container">
+                            <img class="ingredient_icon" src="./src/images/item.svg">
+                            <div class="ingredient_info">
+                                 <p class="ingredient_weight"> 50 g</p>
+                                 <p class="ingredient_name"> bacon</p>
+                             </div>
+                         </div>
+                         <div class="ingredient__container">
+                            <img class="ingredient_icon" src="./src/images/item.svg">
+                            <div class="ingredient_info">
+                                 <p class="ingredient_weight"> 50 g</p>
+                                 <p class="ingredient_name"> egss</p>
+                             </div>
+                         </div>
+                         <div class="ingredient__container">
+                            <img class="ingredient_icon" src="./src/images/item.svg">
+                            <div class="ingredient_info">
+                                 <p class="ingredient_weight"> 50 g</p>
+                                 <p class="ingredient_name"> bacon</p>
+                             </div>
+                         </div>
+                     
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu__bar">
+                <nav>
+                    <ul>
+                        <li class="menu__item"> <a href="">Pizza</a></li>
+                        <li class="menu__item"> <a href="">Burgers</a></li>
+                        <li class="menu__item"> <a href="">Soups</a></li>
+                        <li class="menu__item"> <a href="">Drinks</a></li>
+                        <li class="menu__item"> <a href="">Cakes</a></li>
+                        <li class="menu__item"> <a href="">Others</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="preview__container">
+                <!-- <div class="preview__card">
+                    <div class="back__line">
+                    </div>
+                    <div class="preview__product">
+                        <div class="preview__picture">
+                             <img src="./src/images/test.png">
+                        </div>
+                        <div class="preview__product__details">
+                             <p class="preview__product__title">Tomato Pomadoro</p>
+                             <p class="preview__product__ingredients">Tomato Pomadoro</p>
+                             <p class="preview__product__price"><i class="fas fa-dollar-sign"></i> 56</p>
+                        </div>
+                       
+                        <button class="btn__preview__add">+</button>
+                     </div>
+                </div>-->
+            
+            </div>
+            <div class="paginator__container">
+                <div class="paginator">
+                <!-- <button class="paginator__button"><i class="fas fa-chevron-left"></i>Page 1</button>
+                <button class="paginator__button">Page 3<i class="fas fa-chevron-right"></i></button> -->
+                </div> 
+            </div>
+
+            
+        </section>
+
+    </body>
+</html>
