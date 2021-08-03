@@ -4,7 +4,7 @@ import basketIcon from "url:../../images/item.svg";
 class View{
     _data;
     _parentElement = document.querySelector(".product__detail");
-    _spicyText = ["Really, you can manage" , "It's not so damn hot", "Be careful ...", "Hot as hell" , "Prepare yourself to cry ..."]
+    _spicyText = ["Really, you can manage it" , "It's not that damn hot", "Be careful ...", "Hot as hell" , "Prepare yourself to cry ..."]
 
     render(data){
         this._data = data;
@@ -80,10 +80,12 @@ class View{
         </div>
                 
         <div class="product__info">
-            <p class="product__title">${this._data.name}</p>
-            <div class="product__rating">
-                ${this._generateMarkupSpicy(this._data.spicy)}
-                <span>${this._spicyText[this._data.spicy-1]}</span>
+            <div>
+                <p class="product__title">${this._data.name}</p>
+                <div class="product__rating">
+                    ${this._generateMarkupSpicy(this._data.spicy)}
+                    <span>${this._spicyText[this._data.spicy-1]}</span>
+                </div>
             </div>
             <p class="product__description">${this._data.description}</p>
             <form class="product__qty__form">
