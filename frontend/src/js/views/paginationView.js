@@ -14,8 +14,7 @@ class PaginationView {
 
     _generateMarkup(){
         const currentPage = this._data.currentPage;
-        const numPages = Math.ceil(this._data.search.lenght / this._data.search.resultsPerPage);
-        
+        const numPages = Math.ceil(this._data.results.length / this._data.resultsPerPage);
         // current page is no.1 and there are and other pages
         if(currentPage === 1 && numPages >1) {
             return`
@@ -44,9 +43,9 @@ class PaginationView {
     addHandlerPaginate(handler){
         this._parentElement.addEventListener("click", function(e){
             e.preventDefault();
-            const element = e.closest(".paginator__button");
+            const element = e.target.closest(".paginator__button");
             if(!element) return;
-            const goToPage = +element.dataset.goto
+            const goToPage = +element.dataset.goto;
             handler(goToPage);
         })
     }
