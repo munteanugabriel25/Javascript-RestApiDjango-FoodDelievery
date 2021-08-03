@@ -11,14 +11,19 @@ def generate_random_id():
     return uuid_id
 
 
-
+class ItemManager(models.Manager):
+    
+    def category_item(self, category):
+        return self.filter(category=category)
+        
+        
 class Item(models.Model):
     CATEGORY = [("Pizza", "pizza"),
                 ("Soups", "soups"),
                 ("Drinks", "drinks"),
                 ("Others", "others")
                 ]
-    name = models.CharField(max_length=14, blank=False, default="undefined")
+    name = models.CharField(max_length=20, blank=False, default="undefined")
     price = models.FloatField(blank=False, default=0)
     calories = models.IntegerField(blank=True, default=100)
     id = models.CharField(max_length=20, blank=True, unique=True, primary_key=True, default=generate_random_id)
@@ -32,7 +37,8 @@ class Item(models.Model):
     #     self.id = uuid_id
     #     self.name = self.name.title()
     #     super(Item, self).save(*args, **kwargs)
-
+    
+    objects = ItemManager()
     
     def __str__(self):
         return self.name

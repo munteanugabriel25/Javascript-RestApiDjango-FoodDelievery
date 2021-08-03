@@ -27,7 +27,12 @@ class SearchItemView(APIView):
             serializer = SearchSerializer(data, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 class ListCategoryView(APIView):
     
     def get(self, request, category):
-        pass
+        query = Item.objects.category_item(category)
+        print(query)
+        serializer = SearchSerializer(query, many=True, context={"request": request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+        
