@@ -52,6 +52,18 @@ class View{
 
     addHandlerRender(handler){
         ["hashchange"].forEach(element => window.addEventListener(element, handler));
+
+    }
+
+    addHandlerAddToKart(handler){
+        const form = this._parentElement.getElementsByTagName("form")[0];
+        form.addEventListener("click",function(e){
+            e.preventDefault();
+            const button = e.target.closest("button.btn__form__add");
+            if(!button) return;
+            const quantity = +(form.querySelector("input").value)
+            handler(quantity);
+        })
     }
 
     addHandlerQuantity(handler){
@@ -97,7 +109,7 @@ class View{
                     </div>
                     <p class="product__price">Price: <span>$${this._data.price}</span> </p>
                 </div>
-                <button class="btn__form__add" type="submit">add to kart</button>
+                <button class="btn__form__add">add to kart</button>
             </form>
             <div class="product__ingredients">
                 ${this._data.ingredients.map(ingredient => this._generateMarkupIngredient(ingredient)).join("")}   

@@ -11,6 +11,22 @@ export const state = {
         resultsPerPage:RESULTS_PER_PAGE,
         currentPage:1
     },
+    kart:{
+        items: [],
+        itemsNumber :0,
+        totalValue : 0,
+    },
+    updateCartTotaltems : function(){
+        this.kart.itemsNumber = this.kart.items.length;
+    },
+    updateCartTotalValue : function(){
+        const total = this.kart.items.reduce(function(summ,item){
+            return summ+item.quantity*item.price
+        },0)
+        this.kart.totalValue = total;
+    }
+
+
 }
 
 
@@ -51,9 +67,36 @@ export const getCategoryItems = async function(category){
         state.search.query = category;
         state.search.results = data;
         state.search.currentPage=1;
-        console.log(state.search)
 
     }catch(error){
         console.error(error)
     }
+}
+
+export const AddToKart = function(quantity){
+    const orderedItem = Object.assign({},state.item)
+    orderedItem.quantity = quantity;
+    addCheckDuplicity(orderedItem)
+    
+
+}
+
+
+
+const addCheckDuplicity= function(itemObject){
+    // check it ordered item is allready into kart.items
+    const exists = state.kart.items.some(item => item.id===itemObject.id)
+    if(exists){
+        const item = state.kart.items.forEach(item => {
+            if(item.id===itemObject.id) item.quantity +=itemObject.quantity
+        });
+    }else{
+        state.kart.items.push(itemObject)
+    }
+    //after adding product to kart, update Kart total value and number of items.
+
+    state.updateCartTotalValue();
+    state.updateCartTotaltems();
+    console.log("addeed")
+  
 }

@@ -35,7 +35,6 @@ class resultsView {
     }
 
     _generateIngredientsMarkup(ingredient, index, array){
-        console.log(ingredient,index,array)
         if (index<array.length-1) return ingredient.name + ", "
         else  return ingredient.name
     }

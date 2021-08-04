@@ -12,6 +12,7 @@ const controlItem = async function(){
         itemView.renderSpinner()
         await model.loadItem(id)
         itemView.render(model.state.item)
+        itemView.addHandlerAddToKart(controlAddToKart);
     } 
     catch(error){
 
@@ -27,6 +28,7 @@ const controlSearchResults = async function(){
         if(!query) return;
         await model.loadSearchResults(query);
         resultsView.render(model.getSearchResultsPage());
+        itemView.addHandlerAddToKart(controlAddToKart);
         paginationView.render(model.state.search);
         
     }
@@ -37,12 +39,12 @@ const controlSearchResults = async function(){
 
 
 const controlMenuCategDisplay = async function (categoryClicked){
-    console.log(categoryClicked);
     try {
         resultsView.renderSpinner();
         await model.getCategoryItems(categoryClicked);
         resultsView.render(model.getSearchResultsPage());
         paginationView.render(model.state.search);
+        itemView.addHandlerAddToKart(controlAddToKart);
         categoryView.markCurrentCateg(model.state.search);
 
 
@@ -63,13 +65,17 @@ const controlChangeQuantity = function (state){
     itemView.changeQuantity(state);
 }
 
+const controlAddToKart = function(quantity){
+    model.AddToKart(quantity);
+
+}
+
 const init = function(){
     searchView.addHandlerSearch(controlSearchResults);
     itemView.addHandlerRender(controlItem);
     itemView.addHandlerQuantity(controlChangeQuantity);
     paginationView.addHandlerPaginate(controlPagination);
     categoryView.addHandlerClickCategory(controlMenuCategDisplay);
-
 }
 
 init()
