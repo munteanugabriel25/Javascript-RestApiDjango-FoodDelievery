@@ -3,7 +3,7 @@ import itemView from './views/view.js'
 import searchView from './views/searchView.js'
 import resultsView from './views/resultsView.js'
 import paginationView from './views/paginationView.js'
-
+import categoryView from './views/categoryView.js'
 
 const controlItem = async function(){
     try {
@@ -31,8 +31,26 @@ const controlSearchResults = async function(){
         
     }
     catch(error){
-
+        
     }
+}
+
+
+const controlMenuCategDisplay = async function (categoryClicked){
+    console.log(categoryClicked);
+    try {
+        resultsView.renderSpinner();
+        await model.getCategoryItems(categoryClicked);
+        resultsView.render(model.getSearchResultsPage());
+        paginationView.render(model.state.search);
+        categoryView.markCurrentCateg(model.state.search);
+
+
+
+    }catch(error){
+        console.log(error);
+    }
+    
 }
 
 const controlPagination = function(goToPage){
@@ -50,6 +68,7 @@ const init = function(){
     itemView.addHandlerRender(controlItem);
     itemView.addHandlerQuantity(controlChangeQuantity);
     paginationView.addHandlerPaginate(controlPagination);
+    categoryView.addHandlerClickCategory(controlMenuCategDisplay);
 
 }
 

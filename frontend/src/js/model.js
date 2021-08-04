@@ -11,8 +11,6 @@ export const state = {
         resultsPerPage:RESULTS_PER_PAGE,
         currentPage:1
     },
-   
-
 }
 
 
@@ -45,4 +43,17 @@ export const getSearchResultsPage =  function(page=state.search.currentPage){
     const end = page*state.search.resultsPerPage;
     return state.search.results.slice(start, end);
 
+}
+
+export const getCategoryItems = async function(category){
+    try {
+        data = await getJSON(`${URL_API}/category/${category}`);
+        state.search.query = category;
+        state.search.results = data;
+        state.search.currentPage=1;
+        console.log(state.search)
+
+    }catch(error){
+        console.error(error)
+    }
 }

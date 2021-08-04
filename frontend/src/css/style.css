@@ -389,7 +389,7 @@ nav {
     font-size: 0.9rem;
     font-weight:500;
     letter-spacing:1px;
-    color: var(--textcolor);
+    /* color: var(--textcolor); */
     display: inline-block;
     
 
@@ -408,6 +408,13 @@ nav {
 
 .menu__item  a:hover:before{
     width:100%;
+}
+
+.active__category{
+    color :var(--red);
+    font-weight: 600!important;
+
+
 }
 
 
