@@ -18,8 +18,8 @@ class ItemManager(models.Manager):
         return self.filter(category=category)
     
     def search_item(self, query):
-        return self.filter(Q(name__contains=query) | Q(ingredients__name__contains=query))
-
+        query = self.filter(Q(name__contains=query) | Q(ingredients__name__contains=query)).distinct()
+        return query
 
 class Item(models.Model):
     CATEGORY = [("Pizza", "pizza"),

@@ -18,7 +18,7 @@ class RetrieveItemView(APIView):
 class SearchItemView(APIView):
     def get(self, request):
         query = request.GET.get("search", "")
-        data = Item.objects.all()
+        data = Item.objects.search_item(query)
         if query == "":
             serializer = SearchSerializer(data, many=True, context={"request": request})
         else:
