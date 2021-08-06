@@ -5,7 +5,7 @@ import resultsView from './views/resultsView.js'
 import paginationView from './views/paginationView.js'
 import categoryView from './views/categoryView.js'
 import kartView from './views/kartView.js'
-
+import loginView from './views/loginView.js'
 
 const controlItem = async function(){
     try {
@@ -72,12 +72,16 @@ const controlAddToKart = function(quantity){
     kartView.render(model.state.kart);
 }
 
-const controlHashChange=  function(id){
+const controlHashChange = function(id){
     model.changeStateCurrentItem(id);
     model.AddToKart();
     kartView.render(model.state.kart);
 }
 
+const controlLoginLogout = async function (){
+    console.log(loginView.getUserPassword())
+
+}
 
 const init = function(){
     searchView.addHandlerSearch(controlSearchResults);
@@ -86,7 +90,7 @@ const init = function(){
     paginationView.addHandlerPaginate(controlPagination);
     categoryView.addHandlerClickCategory(controlMenuCategDisplay);
     resultsView.addHandlerHashChange(controlHashChange);
-
+    loginView.addHandlerLogin(controlLoginLogout);   
 }
 
 init()

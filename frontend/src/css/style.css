@@ -83,13 +83,56 @@ body {
 
 /* SUB-COMPONENT  cart container */
 .user__account__container{
-    width: 8%;
+    width: 12%;
     position:absolute;
-    right:8%;
+    right:6%;
     -webkit-box-shadow: 1px 2px 17px 4px rgba(0, 0, 0, 0.11);
     -moz-box-shadow: 1px 2px 17px 4px rgba(0, 0, 0, 0.11);
     border-radius: 8px;
+    display:flex;
+    flex-direction: column;
+    z-index: 1;
 }
+.user__status {
+    background-color: var(--darkblue);
+    color: var(--lightgrey);
+    padding:8px 8px;
+    font-size: 0.8rem;
+    font-weight:300;
+}
+.user__details{
+    padding: 8px 8px 0px 8px;
+}
+
+.display__none{
+    display: none;
+}
+
+.login__user__input{
+    position: relative;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.login__user__input  input{
+    width:100%;
+    padding:3px 5px 3px 20px;
+    border-radius:8px;
+    outline:none;
+    font-size:0.8rem;
+    border: 1px solid rgba(143, 143, 143, 0.432)
+}
+
+.login__user__input .fas {
+    position:absolute;
+    font-size: 0.8rem;
+    top: 50%;
+    left:5%;
+    transform: translateY(-50%);
+    color: var(--darkblue)
+}
+
+
 .cart__container {
     position:absolute;
     top:0%;
