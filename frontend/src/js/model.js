@@ -21,9 +21,10 @@ export const state = {
     },
     updateCartTotalValue : function(){
         const total = this.kart.items.reduce(function(summ,item){
-            return summ+item.quantity*item.price
+            return summ+(item.quantity*item.price)
         },0)
-        this.kart.totalValue = total;
+        console.log(total);
+        this.kart.totalValue = total.toFixed(2);
     }
 
 
@@ -77,6 +78,7 @@ export const AddToKart = function(quantity){
     const orderedItem = Object.assign({},state.item)
     orderedItem.quantity = quantity;
     addCheckDuplicity(orderedItem)
+    console.log(this.state.kart)
     
 
 }
@@ -97,6 +99,4 @@ const addCheckDuplicity= function(itemObject){
 
     state.updateCartTotalValue();
     state.updateCartTotaltems();
-    console.log("addeed")
-  
 }

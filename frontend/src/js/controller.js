@@ -4,6 +4,8 @@ import searchView from './views/searchView.js'
 import resultsView from './views/resultsView.js'
 import paginationView from './views/paginationView.js'
 import categoryView from './views/categoryView.js'
+import kartView from './views/kartView.js'
+
 
 const controlItem = async function(){
     try {
@@ -67,6 +69,8 @@ const controlChangeQuantity = function (state){
 
 const controlAddToKart = function(quantity){
     model.AddToKart(quantity);
+    kartView.render(model.state.kart);
+
 
 }
 
