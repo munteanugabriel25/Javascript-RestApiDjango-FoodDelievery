@@ -1,4 +1,4 @@
-import {getJSON} from "./helpers.js"
+import {getJSON,postJSON} from "./helpers.js"
 import {URL_API,LOGIN_URL} from "./config.js"
 import {RESULTS_PER_PAGE} from "./config.js"
 
@@ -92,13 +92,16 @@ export const changeStateCurrentItem = function(id){
 
 export const userLogin = async function([username,password]){
     try {
-        console.log("from model")
-        console.log(username,password);
-        // data = await getJSON(`${LOGIN_URL}`);
+        const obj={
+            "username":username,
+            "password":password
+        }
+        data = await postJSON(LOGIN_URL,"undefined", obj)
         // state.user.username=data.username;
         // state.user.orders =data.orders;
-        // state.user.token=data.token;
+        state.user.token=data.token;
         await waitTimmer();
+        
     }catch(error){
 
     }

@@ -81,8 +81,10 @@ const controlHashChange = function(id){
 const controlLoginLogout = async function (){
     try{
         console.log(loginView.getUserPassword());
+        loginView._startButtonSpinner();
         await model.userLogin(loginView.getUserPassword())
- 
+        loginView._stopButtonSpinner();
+        
     }catch(error){
         console.log(error);
     }
