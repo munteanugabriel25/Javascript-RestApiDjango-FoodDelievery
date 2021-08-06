@@ -1,5 +1,5 @@
 import {getJSON} from "./helpers.js"
-import {URL_API} from "./config.js"
+import {URL_API,LOGIN_URL} from "./config.js"
 import {RESULTS_PER_PAGE} from "./config.js"
 
 export const state = {
@@ -15,6 +15,11 @@ export const state = {
         items: [],
         itemsNumber :0,
         totalValue : 0,
+    },
+    user:{
+        username:"",
+        token:"",
+        orders:[]
     },
     updateCartTotaltems : function(){
         this.kart.itemsNumber = this.kart.items.length;
@@ -85,7 +90,19 @@ export const changeStateCurrentItem = function(id){
     state.item = object;
 }
 
+export const userLogin = async function([username,password]){
+    try {
+        console.log("from model")
+        console.log(username,password);
+        // data = await getJSON(`${LOGIN_URL}`);
+        // state.user.username=data.username;
+        // state.user.orders =data.orders;
+        // state.user.token=data.token;
+        await waitTimmer();
+    }catch(error){
 
+    }
+}
 
 const addCheckDuplicity= function(itemObject){
     // check it ordered item is allready into kart.items
@@ -101,4 +118,13 @@ const addCheckDuplicity= function(itemObject){
 
     state.updateCartTotalValue();
     state.updateCartTotaltems();
+}
+
+
+const waitTimmer = function(){
+    return new Promise(function(resolve, _){
+        setTimeout(function(){
+            resolve()
+        }, 2000)
+    })
 }
