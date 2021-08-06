@@ -70,9 +70,14 @@ const controlChangeQuantity = function (state){
 const controlAddToKart = function(quantity){
     model.AddToKart(quantity);
     kartView.render(model.state.kart);
-
-
 }
+
+const controlHashChange=  function(id){
+    model.changeStateCurrentItem(id);
+    model.AddToKart();
+    kartView.render(model.state.kart);
+}
+
 
 const init = function(){
     searchView.addHandlerSearch(controlSearchResults);
@@ -80,6 +85,8 @@ const init = function(){
     itemView.addHandlerQuantity(controlChangeQuantity);
     paginationView.addHandlerPaginate(controlPagination);
     categoryView.addHandlerClickCategory(controlMenuCategDisplay);
+    resultsView.addHandlerHashChange(controlHashChange);
+
 }
 
 init()

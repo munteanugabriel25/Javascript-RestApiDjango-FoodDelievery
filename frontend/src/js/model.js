@@ -74,13 +74,15 @@ export const getCategoryItems = async function(category){
     }
 }
 
-export const AddToKart = function(quantity){
+export const AddToKart = function(quantity=1){
     const orderedItem = Object.assign({},state.item)
     orderedItem.quantity = quantity;
     addCheckDuplicity(orderedItem)
-    console.log(this.state.kart)
-    
+}
 
+export const changeStateCurrentItem = function(id){
+    const object =  state.search.results.find(itemObject=> itemObject.id=id);
+    state.item = object;
 }
 
 
