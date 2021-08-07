@@ -97,11 +97,12 @@ export const userLogin = async function([username,password]){
             "password":password
         }
         data = await postJSON(LOGIN_URL,"undefined", obj)
-        // state.user.username=data.username;
+        state.user.username=data.username;
         // state.user.orders =data.orders;
         state.user.token=data.token;
+        console.log(state.user)
         await waitTimmer();
-        
+
     }catch(error){
 
     }

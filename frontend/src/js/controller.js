@@ -78,19 +78,23 @@ const controlHashChange = function(id){
     kartView.render(model.state.kart);
 }
 
-const controlLoginLogout = async function (){
+const controlLogin = async function (){
     try{
-        console.log(loginView.getUserPassword());
-        loginView._startButtonSpinner();
+        loginView._statusButtonSpinner(true);
         await model.userLogin(loginView.getUserPassword())
-        loginView._stopButtonSpinner();
-        
+        loginView.successLogin(model.state.user);
+
     }catch(error){
         console.log(error);
     }
-  
-
 }
+
+const controlLogout = function() {
+    loginView.succesLogout();
+}
+
+
+
 
 const init = function(){
     searchView.addHandlerSearch(controlSearchResults);
@@ -99,7 +103,7 @@ const init = function(){
     paginationView.addHandlerPaginate(controlPagination);
     categoryView.addHandlerClickCategory(controlMenuCategDisplay);
     resultsView.addHandlerHashChange(controlHashChange);
-    loginView.addHandlerLogin(controlLoginLogout);   
+    loginView.addHandlerLoginLogout(controlLogin, controlLogout);   
 }
 
 init()

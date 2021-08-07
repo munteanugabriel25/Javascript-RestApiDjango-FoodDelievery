@@ -4,39 +4,58 @@ class LoginView{
     _formStatus = false;
     _form = document.querySelector(".user__details");
     _data;
+    _userLogedIn = false;
 
 
-    _renderUserName(){
-        this._parentElement.querySelector(".user__status").innerHTML=`logged as ${this._data.username}`;
+    _renderUserName(value){
+        if(!value) this._parentElement.querySelector(".user__status").innerHTML=`logged as ${this._data.username}`;
+        else this._parentElement.querySelector(".user__status").innerHTML=`${value}`;
     }
     
     successLogin(data){
-        this._stopButtonSpinner();
-        this._renderUserName()
+        this._data = data;
+        this._statusButtonSpinner(false);
+        this._renderUserName();
+        this._emptyFormInputs();
+        this._changeButtonText("LOGOUT");
+        this._hideForm();
+        this._userLogedIn = true;
     }
 
-    addHandlerLogin(handler){
+    succesLogout(){
+        this._userLogedIn = false;
+        this._changeButtonText("LOGIN");
+        this._renderUserName("log in to place an order")
+    }
+
+
+    addHandlerLoginLogout(login,logout){
         this._parentElement.addEventListener("click", function(e){
             e.preventDefault()
             const element = e.target.closest("button")
-            //second click when user submits to login
-            if (element && this._formStatus) {
-                handler();
+            if(!this._userLogedIn){
+                //second click when user submits to login
+                if (element && this._formStatus) {
+                    login();
+                }
+                // first click when form should be displayed
+                if (element && !this._formStatus) this._showForm();
+            }else{
+                // user wants to log out from the application
+                logout();
             }
-            // first click when form should be displayed
-            if (element && !this._formStatus) this._showForm()
+           
+
               
         }.bind(this))
     }
 
-    _startButtonSpinner(){
-        this._parentElement.querySelector(".ispinner").classList.remove("display__none");
-    }
 
-    _stopButtonSpinner(){
-        this._parentElement.querySelector(".ispinner").classList.add("display__none");
+    ///True = active spinner, False = inactive spinner
+    _statusButtonSpinner(boolValue){
+        if(boolValue)this._parentElement.querySelector(".ispinner").classList.remove("display__none");
+        else this._parentElement.querySelector(".ispinner").classList.add("display__none");
     }
-
 
     getUserPassword(){
         const user = this._parentElement.querySelectorAll("input")[0].value;
@@ -44,14 +63,22 @@ class LoginView{
         return[ user,password];
     }
 
+    _emptyFormInputs(){
+        const elements = this._parentElement.querySelectorAll("input");
+        elements.forEach(element => element.value="");
+    }
+
     _showForm(){
         this._form.classList.remove("display__none")
         this._formStatus=true;
     }
     _hideForm(){
-        console.log(this._form.classList)
         this._form.classList.add("display__none")
         this._formStatus=false;
+    }
+
+    _changeButtonText(value){
+        this._parentElement.querySelector("button").textContent=value;
     }
 
 }
