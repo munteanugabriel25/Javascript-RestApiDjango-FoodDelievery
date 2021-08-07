@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from django.db.models import Q
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -20,6 +21,7 @@ class ItemManager(models.Manager):
     def search_item(self, query):
         query = self.filter(Q(name__contains=query) | Q(ingredients__name__contains=query)).distinct()
         return query
+
 
 class Item(models.Model):
     CATEGORY = [("Pizza", "pizza"),
@@ -63,3 +65,39 @@ class Ingredient(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class OrderManager(models.Manager):
+    def get_total_value(self):
+        print("done")
+    
+    def get_total_items(self):
+        pass
+
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="orders")
+    created = models.DateTimeField(auto_now_add=True)
+    total_value = models.FloatField(blank=True, default=0)
+    total_items = models.IntegerField(blank=True, default=0)
+
+    objects = OrderManager()
+    
+    def __str__(self):
+        return 'order No.{} total value of {}'.format(self.id, self.total_value)
+
+    def update_value_items(self, *args, **kwargs):
+        total_value = 0
+        total_items = len(self.items.all())
+        for item in self.items.all():
+            total_value += (item.quantity*item.item.values_list()[0][1])
+            self.total_value = total_value
+            self.total_items = total_items
+            self.save()
+            
+            
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
+    item = models.ManyToManyField(Item)
+    quantity = models.IntegerField(blank=False)
+    
