@@ -2,12 +2,14 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Item
-from .serializers import ItemSerializer, SearchSerializer
+from .models import Item, Order
+from .serializers import ItemSerializer, SearchSerializer, OrderSerializer
 from django.shortcuts import get_object_or_404
-
+from django.contrib.auth.models import User
 
 # Create your views here.
+
+
 class RetrieveItemView(APIView):
     def get(self, request, id):
         item = get_object_or_404(Item, pk=id)
@@ -33,3 +35,11 @@ class ListCategoryView(APIView):
         serializer = SearchSerializer(query, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
         
+        
+class OrderListCreateView(APIView):
+    
+    def get(self, request):
+        user = get_object_or_404(User, username=request.user)
+        orders = Order.objects.filter(user=user)
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

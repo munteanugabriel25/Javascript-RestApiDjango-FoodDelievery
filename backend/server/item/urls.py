@@ -3,6 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.SearchItemView.as_view()),
+    path('order/', views.OrderListCreateView.as_view()),
     path('<str:id>/', views.RetrieveItemView.as_view()),
     path('category/<str:category>/', views.ListCategoryView.as_view()),
+    
 ]
