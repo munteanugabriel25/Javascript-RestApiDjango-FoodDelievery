@@ -17,7 +17,78 @@
         <![endif]-->
        
         <script src="" async defer></script>
+        <div class="modal__bg">
+            <div class="modal__window">
+                <div class="modal__header">
+                    <p class="modal__header__text">Order Details</p>
+                    <button class="modal__close__btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal__content">
+                    <ul>
+                        <li >
+                            <div class="item__header">
+                                <p></p>
+                                <p class="modal__header__text">Name </p>
+                                <p class="modal__header__text">Price </p>
+                                <p class="modal__header__text">Quantity </p>
+                                <p class="modal__header__text">Total</p>
+                                <p class="modal__header__text">Remove </p>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <img src="src/images/test2.png">
+                                <p> Tomato Pomadoro olives</p>
+                                <p class="modal__product__price">$12 </p>
+                                <div class="modal__product__price__qty">
+                                        <button class="form__bnt__qty" value="decrease">-</button>
+                                        <input type="number" value="1" id="qty__input">
+                                        <button class="form__bnt__qty" value="increase">+</button>
+                                </div>
+                                <p class="modal__product__price">$12</p>
+                                <button class="modal__remove__btn"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <img src="src/images/carbonara.png">
+                                <p> Tomato Pomadoro olives</p>
+                                <p class="modal__product__price">$12 </p>
+                                <div class="modal__product__price__qty">
+                                        <button class="form__bnt__qty" value="decrease">-</button>
+                                        <input type="number" value="1" id="qty__input">
+                                        <button class="form__bnt__qty" value="increase">+</button>
+                                </div>
+                                <p class="modal__product__price">$12</p>
+                                <button class="modal__remove__btn"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item">
+                                <img src="src/images/test2.png">
+                                <p> Tomato Pomadoro olives</p>
+                                <p class="modal__product__price">$12 </p>
+                                <div class="modal__product__price__qty">
+                                        <button class="form__bnt__qty" value="decrease">-</button>
+                                        <input type="number" value="1" id="qty__input">
+                                        <button class="form__bnt__qty" value="increase">+</button>
+                                </div>
+                                <p class="modal__product__price">$12</p>
+                                <button class="modal__remove__btn"><i class="fas fa-times"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+
+                        <button class="modal__place__order__btn">Total: 12$ ->PLACE ORDER </button>
+                      
+                    </div>
+                </div>
+                
+            </div>      
+        </div>
         <section class="main__window">
+           
             <div class="top__bar">
                 <img class="logo" src="./src/images/logo.png">
                 <form class="search__container">
@@ -28,7 +99,7 @@
                     <div class="cart__details">
                         <p> 0 dishees</p>
                         <p> <i class="fas fa-dollar-sign"></i> 0</p>
-                        <p> <i class="fas fa-shopping-cart"></i> kart</p>
+                        <p> <i class="fas fa-shopping-cart"></i> cart</p>
                     </div>
                     <button class="btn__kart">ORDER</button>
                 </div>
@@ -70,7 +141,7 @@
                             </div>
                             <p class="product__price">Price: <span>$12</span> </p>
                         </div>
-                        <button  class="btn__form__add" >add to kart</button>
+                        <button  class="btn__form__add" >add to cart</button>
                     </form>
                     <div class="product__ingredients">
                         <div class="ingredient__container">
