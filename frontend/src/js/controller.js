@@ -6,6 +6,7 @@ import paginationView from './views/paginationView.js'
 import categoryView from './views/categoryView.js'
 import kartView from './views/kartView.js'
 import loginView from './views/loginView.js'
+import orderView from './views/orderView.js'
 
 const controlItem = async function(){
     try {
@@ -94,6 +95,19 @@ const controlLogout = function() {
 }
 
 
+const controlOrderAction  = function(){
+    orderView.render(model.state.kart)
+}
+
+const controlUpdateCart = function(itemID, quantity){
+    model.updateCart(itemID, quantity);
+    orderView.render(model.state.kart);
+    kartView.render(model.state.kart);
+    
+}
+
+
+
 
 
 const init = function(){
@@ -104,6 +118,9 @@ const init = function(){
     categoryView.addHandlerClickCategory(controlMenuCategDisplay);
     resultsView.addHandlerHashChange(controlHashChange);
     loginView.addHandlerLoginLogout(controlLogin, controlLogout);   
+    kartView.addHandlerOrder(controlOrderAction);
+    orderView.addHandlerOrder(controlOrderAction,controlUpdateCart);
+
 }
 
 init()

@@ -28,7 +28,6 @@ export const state = {
         const total = this.kart.items.reduce(function(summ,item){
             return summ+(item.quantity*item.price)
         },0)
-        console.log(total);
         this.kart.totalValue = total.toFixed(2);
     }
 
@@ -120,6 +119,19 @@ const addCheckDuplicity= function(itemObject){
     }
     //after adding product to kart, update Kart total value and number of items.
 
+    state.updateCartTotalValue();
+    state.updateCartTotaltems();
+}
+
+
+export const updateCart = function(itemID, quantity){
+    if(quantity!=0) state.kart.items.forEach(item =>{
+        if(item.id === itemID) item.quantity=quantity
+    });
+    else{
+        const index=state.kart.items.findIndex(item => item.id === itemID)
+        state.kart.items.splice(index, 1);
+    }
     state.updateCartTotalValue();
     state.updateCartTotaltems();
 }

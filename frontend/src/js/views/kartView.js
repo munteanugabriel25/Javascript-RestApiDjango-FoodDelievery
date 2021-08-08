@@ -26,6 +26,14 @@ class KartView{
         `
     }
 
+    addHandlerOrder(handler) {
+        this._parentElement.addEventListener('click', function(e) {
+            const element = e.target.closest('button');
+            if (!element) return;
+            handler();
+        })
+    }
+
 }
 
 

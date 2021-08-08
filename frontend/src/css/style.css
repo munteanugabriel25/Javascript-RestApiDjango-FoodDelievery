@@ -913,7 +913,14 @@ nav {
     display:flex;
     justify-content: center;
     align-items:center;
+    transition: all 0.4s ease-in-out;
  }
+
+.modal__hidden{
+    visibility: hidden;
+    opacity: 0;    
+}
+
 
 .modal__window{
     padding:15px;
@@ -942,9 +949,14 @@ nav {
     cursor: pointer;
 
 }
+.modal__header__text__title{
+    font-size: 1.2rem;
+    font-weight:600;
+    color: var(--darkblue);
+}
 
 .modal__header__text{
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight:600;
     color: var(--darkblue);
 }
