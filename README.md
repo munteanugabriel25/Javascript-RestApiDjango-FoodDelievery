@@ -52,21 +52,23 @@
 ## About The Project
 
 <p float="left">
-<img src="frontend/images/prevPic1.jpg" width="48%" display="inline-block">
-<img src="frontend/images/prevPic2.jpg" width="48%" display="inline-block">
-<img src="frontend/images/prevPic3.jpg" width="48%" display="inline-block">
-<img src="frontend/images/prevPic4.jpg" width="48%" display="inline-block">
+<img src="preview_pics/preview1.png" width="48%" display="inline-block">
+<img src="preview_pics/preview2.png" width="48%" display="inline-block">
+<img src="preview_pics/preview3.png" width="48%" display="inline-block">
+<img src="preview_pics/preview4.png" width="48%" display="inline-block">
 </p>
 
-Todo list for tracking daily activities. It uses API endpoints written in Python/Django Rest Framework and a weather API to render forecast conditions.
+Food delivery app with login authentication. It uses API endpoints written in Python/Django Rest Framework.
 Authentification is done using token-auth.
 If user does not exists, then a new one can be created using this interface.
 Django database is set to sqlite.
+Products can be added using Django ADMIN interface and also new users can ne created from there.
 
 ### Built With
 
 - []() Backend: Python Django Rest Framework
-- []() Frontend: JavaScript, HTML, CSS
+- []() Frontend: JavaScript, HTML, CSS, Bundler: Parcel
+
 
 <!-- GETTING STARTED -->
 
@@ -87,7 +89,7 @@ Go to a new folder and then create an virtual environment
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/munteanugabriel25/Javascript-Django-TodoList-.git
+   git clonehttps://github.com/munteanugabriel25/Javascript-RestApiDjango-FoodDelievery.git
    ```
 2. Install dependencies packages for backend server
    ```sh
@@ -96,6 +98,10 @@ Go to a new folder and then create an virtual environment
    pip install django-cors-headers
    ```
 
+3. Initialize a new NPM project using command 
+```sh
+    npm init
+   ```
 <!-- USAGE EXAMPLES -->
 
 ## Usage
@@ -138,7 +144,7 @@ Not defined
 
 Your Name - Munteanu Gabriel - email : munteanugabriel25@yahoo.com
 
-Project Link: [https://github.com/munteanugabriel25/Javascript-Django-TodoList-.git](https://github.com/munteanugabriel25/Javascript-Django-TodoList-.git)
+Project Link: [https://github.com/munteanugabriel25/Javascript-RestApiDjango-FoodDelievery.git](https://github.com/munteanugabriel25/Javascript-RestApiDjango-FoodDelievery.git)
 
 <!-- ACKNOWLEDGEMENTS -->
 
