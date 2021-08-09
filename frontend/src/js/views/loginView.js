@@ -8,7 +8,7 @@ class LoginView{
 
 
     _renderUserName(value){
-        if(!value) this._parentElement.querySelector(".user__status").innerHTML=`logged as ${this._data.username}`;
+        if(!value) this._parentElement.querySelector(".user__status").innerHTML=`logged in as ${this._data.username}`;
         else this._parentElement.querySelector(".user__status").innerHTML=`${value}`;
     }
     
